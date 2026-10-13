@@ -510,6 +510,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================================================
+  // VALORES — QUADRADOS QUE ABREM AO CLICAR
+  // ==========================================================================
+
+  document.querySelectorAll(".value-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const isOpen = card.getAttribute("aria-expanded") === "true";
+      card.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+  // ==========================================================================
   // ANO AUTOMÁTICO DO RODAPÉ
   // ==========================================================================
 
