@@ -521,6 +521,110 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
+  // MANIFESTO GRAFITADO — palavras "pintadas" conforme a rolagem
+  // ==========================================================================
+
+  const graffitiWall = document.querySelector("[data-graffiti]");
+
+  if (graffitiWall && !prefersReducedMotion) {
+    const manifesto = graffitiWall.querySelector(".manifesto");
+    const paragraphs = [...manifesto.querySelectorAll("p")];
+    const nozzle = document.createElement("span");
+    nozzle.className = "gw-nozzle";
+    nozzle.setAttribute("aria-hidden", "true");
+    manifesto.appendChild(nozzle);
+
+    // Quebra cada parágrafo em palavras (o texto continua legível para leitores de tela)
+    const groups = paragraphs.map((paragraph) => {
+      const words = paragraph.textContent.trim().split(/\s+/);
+      paragraph.setAttribute("aria-label", paragraph.textContent.trim());
+      paragraph.textContent = "";
+
+      return words.map((text, index) => {
+        const word = document.createElement("span");
+        word.className = "gw-word";
+        word.setAttribute("aria-hidden", "true");
+        word.textContent = text;
+        word.style.setProperty("--tilt", `${(Math.random() * 2 - 1).toFixed(2)}deg`);
+
+        if (text.length > 4 && Math.random() < 0.06) {
+          word.classList.add("has-drip");
+          word.style.setProperty("--drip-x", `${Math.round(20 + Math.random() * 60)}%`);
+          word.style.setProperty("--drip-h", `${Math.round(10 + Math.random() * 22)}px`);
+        }
+
+        paragraph.appendChild(word);
+        if (index < words.length - 1) paragraph.appendChild(document.createTextNode(" "));
+        return word;
+      });
+    });
+
+    let graffitiTicking = false;
+
+    const paintFromScroll = () => {
+      const viewport = window.innerHeight;
+      let lastPainted = null;
+      let painting = false;
+
+      paragraphs.forEach((paragraph, i) => {
+        const rect = paragraph.getBoundingClientRect();
+        const start = viewport * 0.85;
+        const progress = Math.min(
+          Math.max((start - rect.top) / (rect.height + viewport * 0.3), 0),
+          1
+        );
+        const words = groups[i];
+        const count = Math.round(progress * words.length);
+
+        words.forEach((word, index) => {
+          word.classList.toggle("is-painted", index < count);
+        });
+
+        if (count > 0) lastPainted = words[count - 1];
+        if (count > 0 && count < words.length) painting = true;
+      });
+
+      if (lastPainted && painting) {
+        nozzle.style.transform = `translate(${lastPainted.offsetLeft + lastPainted.offsetWidth}px, ${lastPainted.offsetTop + lastPainted.offsetHeight / 2}px)`;
+        nozzle.classList.add("is-active");
+      } else {
+        nozzle.classList.remove("is-active");
+      }
+
+      graffitiTicking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (graffitiTicking) return;
+      graffitiTicking = true;
+      window.requestAnimationFrame(paintFromScroll);
+    }, { passive: true });
+
+    window.addEventListener("resize", paintFromScroll, { passive: true });
+    paintFromScroll();
+  }
+
+  // ==========================================================================
+  // QUEM FAZ ACONTECER — balões na foto (toque no celular)
+  // ==========================================================================
+
+  const teamSpots = document.querySelectorAll(".team-spot");
+
+  teamSpots.forEach((spot) => {
+    spot.addEventListener("click", () => {
+      const isOpen = spot.getAttribute("aria-expanded") === "true";
+      teamSpots.forEach((other) => other.setAttribute("aria-expanded", "false"));
+      spot.setAttribute("aria-expanded", String(!isOpen));
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".team-spot")) {
+      teamSpots.forEach((spot) => spot.setAttribute("aria-expanded", "false"));
+    }
+  });
+
+  // ==========================================================================
   // ANO AUTOMÁTICO DO RODAPÉ
   // ==========================================================================
 

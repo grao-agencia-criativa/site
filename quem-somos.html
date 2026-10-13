@@ -6,7 +6,7 @@
   <title>Quem Somos — Grão</title>
   <meta name="description" content="Conheça a história da Grão: uma agência criativa nascida de uma amizade e da vontade de fazer comunicação com propósito." />
   <link rel="icon" href="assets/img/icon-green.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
 </head>
 <body>
 
@@ -20,7 +20,6 @@
       </button>
       <ul class="nav-links">
         <li><a href="index.html">Início</a></li>
-        <li><a href="portfolio.html">Portfólio</a></li>
         <li><a href="quem-somos.html" class="active">Quem Somos</a></li>
         <li><a href="contato.html">Contato</a></li>
       </ul>
@@ -39,9 +38,9 @@
       </div>
     </section>
 
-    <section class="bg-soft">
+    <section class="graffiti-wall" data-graffiti>
       <div class="container">
-        <div class="manifesto">
+        <div class="manifesto manifesto--graffiti">
           <p>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</p>
           <p>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</p>
           <p>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</p>
@@ -65,54 +64,70 @@
     </section>
 
     <section class="bg-sprout">
-      <div class="container">
+      <div class="container" style="max-width: 980px;">
         <h2>Missão, visão e valores</h2>
-        <div class="services-grid" style="margin-top: 2rem;">
-          <div class="service-item">
-            <h3>Missão</h3>
-            <p>Criar comunicação com propósito que conecta marcas a pessoas de verdade, indo além de métricas de ego e conteúdo enlatado.</p>
-          </div>
-          <div class="service-item">
-            <h3>Visão</h3>
-            <p>Ser reconhecida como a agência que devolveu significado à comunicação de marcas que acreditam em fazer diferente.</p>
-          </div>
-          <div class="service-item">
-            <h3>Valores</h3>
-            <p>Criatividade com raiz, respeito ao tempo e aos processos, disruptividade com propósito, acolhimento e conexão antes de conversão.</p>
-          </div>
-        </div>
+        <ul class="values-grid">
+          <li>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="mvv-01">
+              <span class="num">01</span>
+              <span class="value-card__title">Missão</span>
+              <span class="value-card__text" id="mvv-01">Criar comunicação com propósito que conecta marcas a pessoas de verdade, indo além de métricas de ego e conteúdo enlatado.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
+          </li>
+          <li>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="mvv-02">
+              <span class="num">02</span>
+              <span class="value-card__title">Visão</span>
+              <span class="value-card__text" id="mvv-02">Ser reconhecida como a agência que devolveu significado à comunicação de marcas que acreditam em fazer diferente.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
+          </li>
+          <li>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="mvv-03">
+              <span class="num">03</span>
+              <span class="value-card__title">Valores</span>
+              <span class="value-card__text" id="mvv-03">Criatividade com raiz, respeito ao tempo e aos processos, disruptividade com propósito, acolhimento e conexão antes de conversão.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="bg-cream">
       <div class="container">
         <h2>Quem faz acontecer</h2>
-        <div class="team-grid">
-          <div class="team-card">
-            <div class="avatar">
-              <img src="assets/img/icon-green.svg" alt="" />
-            </div>
-            <h3>Paulo</h3>
-            <span class="role">Cofundador</span>
-            <p>Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</p>
-          </div>
-          <div class="team-card">
-            <div class="avatar">
-              <img src="assets/img/icon-green.svg" alt="" />
-            </div>
-            <h3>Sinara</h3>
-            <span class="role">Cofundadora</span>
-            <p>Em transição de carreira, trouxe um olhar novo e sensível sobre criação — e a coragem de recomeçar com propósito.</p>
-          </div>
-          <div class="team-card">
-            <div class="avatar">
-              <img src="assets/img/icon-green.svg" alt="" />
-            </div>
-            <h3>Paulo</h3>
-            <span class="role">Cofundador</span>
-            <p>Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</p>
-          </div>
-        </div>
+        <p class="team-hint">Passe o mouse (ou toque) em cada um para conhecer.</p>
+        <!-- FOTO DOS COFUNDADORES: troque o src abaixo pela foto.
+             Ajuste --x e --y (em %) de cada pessoa para posicionar o ponto em cima dela. -->
+        <figure class="team-photo">
+          <img src="assets/img/cofundadores.jpg" alt="Os três cofundadores da Grão" class="team-photo__img" onerror="this.closest('.team-photo').classList.add('is-placeholder')" />
+          <button class="team-spot" type="button" style="--x: 22%; --y: 38%;" aria-expanded="false">
+            <span class="team-spot__dot" aria-hidden="true"></span>
+            <span class="team-spot__balloon" role="tooltip">
+              <strong>Paulo</strong>
+              <span class="team-spot__role">Cofundador</span>
+              <span class="team-spot__desc">Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</span>
+            </span>
+          </button>
+          <button class="team-spot" type="button" style="--x: 50%; --y: 34%;" aria-expanded="false">
+            <span class="team-spot__dot" aria-hidden="true"></span>
+            <span class="team-spot__balloon" role="tooltip">
+              <strong>Sinara</strong>
+              <span class="team-spot__role">Cofundadora</span>
+              <span class="team-spot__desc">Em transição de carreira, trouxe um olhar novo e sensível sobre criação — e a coragem de recomeçar com propósito.</span>
+            </span>
+          </button>
+          <button class="team-spot" type="button" style="--x: 78%; --y: 38%;" aria-expanded="false">
+            <span class="team-spot__dot" aria-hidden="true"></span>
+            <span class="team-spot__balloon" role="tooltip">
+              <strong>Nome</strong>
+              <span class="team-spot__role">Cofundador(a)</span>
+              <span class="team-spot__desc">Descrição do terceiro cofundador.</span>
+            </span>
+          </button>
+        </figure>
       </div>
     </section>
 
@@ -126,7 +141,6 @@
         </a>
         <ul class="footer-links">
           <li><a href="index.html">Início</a></li>
-          <li><a href="portfolio.html">Portfólio</a></li>
           <li><a href="quem-somos.html">Quem Somos</a></li>
           <li><a href="contato.html">Contato</a></li>
         </ul>
@@ -138,7 +152,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
