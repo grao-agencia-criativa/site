@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — Grão</title>
+  <meta name="description" content="Vamos plantar algo juntos? Fale com a Grão e conte seu desafio de comunicação." />
+  <link rel="icon" href="assets/img/icon-green.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/img/logo-green.svg" alt="" class="icon" />
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="contato.html" class="active">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero bg-cream">
+      <div class="container">
+        <h1>Vamos plantar algo juntos?</h1>
+        <p class="lede">Conta pra gente sobre seu desafio. A gente responde rápido — e com atenção de verdade, não resposta automática.</p>
+      </div>
+    </section>
+
+    <section class="bg-cream" style="padding-top: 0;">
+      <div class="container contact-layout">
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required />
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(00) 00000-0000" />
+          </div>
+          <div class="field">
+            <label for="desafio">Conte um pouco do seu desafio</label>
+            <textarea id="desafio" name="desafio"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar e falar no WhatsApp</button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+
+        <div class="contact-info">
+          <h3>Fale direto</h3>
+          <p>Prefere pular o formulário? Chama a gente direto no WhatsApp.</p>
+          <a href="https://wa.me/5500000000000" class="btn btn-outline" target="_blank" rel="noopener">Abrir WhatsApp</a>
+
+          <h3>Redes sociais</h3>
+          <ul class="socials">
+            <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+
+          <h3>Onde atuamos</h3>
+          <p>Atendemos clientes em todo o Brasil — com time em Belém e Fortaleza.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <a href="index.html" class="footer-brand">
+          <img src="assets/img/logo-green.svg" alt="" class="icon" />
+        </a>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Grão — Agência Criativa</span>
+        <span>Feito com raiz, no Brasil inteiro.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
