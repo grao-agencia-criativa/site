@@ -344,29 +344,32 @@ data-root-section
         <path class="root-line root-line--fine" pathLength="1" data-root-delay="0.63" d="M281 420 C258 399 230 391 198 394 M247 465 C214 455 184 463 153 486" />
         <path class="root-line" pathLength="1" data-root-delay="0.68" d="M341 455 C378 471 407 500 431 540 C449 570 475 591 508 603" />
       </svg>
-      <div class="container" style="max-width: 760px;">
+      <div class="container" style="max-width: 980px;">
         <h2>Três coisas que não abrimos mão</h2>
-        <ul class="values-list">
+        <ul class="values-grid">
           <li>
-            <span class="num">01</span>
-            <div>
-              <h3>Criatividade de verdade</h3>
-              <p>Ideia que nasce do problema da marca, não de fórmula pronta.</p>
-            </div>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="value-01">
+              <span class="num">01</span>
+              <span class="value-card__title">Criatividade de verdade</span>
+              <span class="value-card__text" id="value-01">Ideia que nasce do problema da marca, não de fórmula pronta.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
           </li>
           <li>
-            <span class="num">02</span>
-            <div>
-              <h3>Respeito ao tempo e aos processos</h3>
-              <p>Comunicação boa não se improvisa.</p>
-            </div>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="value-02">
+              <span class="num">02</span>
+              <span class="value-card__title">Respeito ao tempo e aos processos</span>
+              <span class="value-card__text" id="value-02">Comunicação boa não se improvisa.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
           </li>
           <li>
-            <span class="num">03</span>
-            <div>
-              <h3>Disruptividade com propósito</h3>
-              <p>Ousar onde faz sentido ousar.</p>
-            </div>
+            <button class="value-card" type="button" aria-expanded="false" aria-controls="value-03">
+              <span class="num">03</span>
+              <span class="value-card__title">Disruptividade com propósito</span>
+              <span class="value-card__text" id="value-03">Ousar onde faz sentido ousar.</span>
+              <span class="value-card__icon" aria-hidden="true">+</span>
+            </button>
           </li>
         </ul>
       </div>
@@ -492,4 +495,3 @@ data-root-section
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
-<script src="js/main.js"></script>
