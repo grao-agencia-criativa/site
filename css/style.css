@@ -949,6 +949,217 @@
   
   .manifesto p { margin-bottom: 1.1em; }
   
+  /* --- Manifesto grafitado na parede (Quem Somos) --- */
+
+  .graffiti-wall {
+    position: relative;
+    background-color: #E4DAC6;
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.35), transparent 40%),
+      radial-gradient(circle at 82% 68%, rgba(72, 56, 14, 0.08), transparent 45%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='64'%3E%3Cg fill='none' stroke='%2348380E' stroke-opacity='0.11' stroke-width='3'%3E%3Cpath d='M0 1.5H140M0 33.5H140M1.5 0V32M71.5 32V64'/%3E%3C/g%3E%3C/svg%3E");
+    overflow: hidden;
+  }
+
+  .manifesto--graffiti {
+    position: relative;
+    max-width: 760px;
+    color: var(--green);
+  }
+
+  .gw-word {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.12) rotate(var(--tilt, 0deg));
+    transition: opacity 0.35s ease, filter 0.45s ease, transform 0.45s ease, text-shadow 0.6s ease;
+  }
+
+  .gw-word.is-painted {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) rotate(var(--tilt, 0deg));
+    text-shadow: 0 0 4px rgba(89, 118, 63, 0.3), 0 0 14px rgba(89, 118, 63, 0.12);
+  }
+
+  /* Escorrido de tinta em algumas palavras */
+  .gw-word.has-drip::after {
+    content: "";
+    position: absolute;
+    left: var(--drip-x, 50%);
+    top: 82%;
+    width: 3px;
+    height: 0;
+    border-radius: 0 0 3px 3px;
+    background: currentColor;
+    opacity: 0.75;
+    transition: height 1.4s ease 0.4s;
+  }
+
+  .gw-word.has-drip.is-painted::after { height: var(--drip-h, 18px); }
+
+  /* "Bico" do spray que acompanha a pintura */
+  .gw-nozzle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    margin: -35px 0 0 -35px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(89, 118, 63, 0.35), rgba(89, 118, 63, 0.12) 40%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.25s ease-out;
+  }
+
+  .gw-nozzle.is-active { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gw-word { opacity: 1; filter: none; transform: none; }
+    .gw-nozzle { display: none; }
+  }
+
+  /* --- Quem faz acontecer: foto com balões --- */
+
+  .team-hint { color: var(--green); margin: -0.2rem 0 1.6rem; }
+
+  .team-photo {
+    position: relative;
+    margin: 0;
+    border-radius: 24px;
+  }
+
+  .team-photo__img {
+    width: 100%;
+    border-radius: 24px;
+    transition: filter 0.3s ease;
+  }
+
+  .team-photo:has(.team-spot:hover) .team-photo__img,
+  .team-photo:has(.team-spot[aria-expanded="true"]) .team-photo__img { filter: brightness(0.92); }
+
+  .team-photo.is-placeholder {
+    aspect-ratio: 16 / 9;
+    background: repeating-linear-gradient(45deg, var(--bg-soft) 0 18px, var(--bg) 18px 36px);
+    border: 2px dashed var(--gold);
+  }
+
+  .team-photo.is-placeholder .team-photo__img { display: none; }
+
+  .team-photo.is-placeholder::before {
+    content: "Foto dos cofundadores";
+    position: absolute;
+    inset: auto 0 1.2rem;
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--gold);
+  }
+
+  .team-spot {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w, 24%);
+    height: var(--h, 60%);
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .team-spot__dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--terracotta);
+    box-shadow: 0 0 0 0 rgba(230, 86, 59, 0.6);
+    animation: team-pulse 2s ease-out infinite;
+    transition: opacity 0.25s ease;
+  }
+
+  @keyframes team-pulse {
+    to { box-shadow: 0 0 0 16px rgba(230, 86, 59, 0); }
+  }
+
+  .team-spot__balloon {
+    position: absolute;
+    left: 50%;
+    bottom: calc(50% + 22px);
+    z-index: 2;
+    width: max-content;
+    max-width: min(280px, 70vw);
+    padding: 1rem 1.2rem;
+    border-radius: 16px;
+    background: var(--cream);
+    color: var(--ink);
+    text-align: left;
+    box-shadow: 0 12px 30px rgba(35, 26, 9, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 8px) scale(0.96);
+    transform-origin: bottom center;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .team-spot__balloon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-left: -9px;
+    border: 9px solid transparent;
+    border-top-color: var(--cream);
+  }
+
+  .team-spot__balloon strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+  }
+
+  .team-spot__role {
+    display: block;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .team-spot__desc { display: block; font-size: 0.95rem; line-height: 1.45; }
+
+  .team-spot:hover .team-spot__balloon,
+  .team-spot:focus-visible .team-spot__balloon,
+  .team-spot[aria-expanded="true"] .team-spot__balloon {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  .team-spot:hover .team-spot__dot,
+  .team-spot[aria-expanded="true"] .team-spot__dot { opacity: 0; }
+
+  /* Balões das pontas alinhados para dentro da foto */
+  .team-spot:first-of-type .team-spot__balloon { left: 0; transform: translate(0, 8px) scale(0.96); transform-origin: bottom left; }
+  .team-spot:first-of-type .team-spot__balloon::after { left: 2.2rem; }
+  .team-spot:last-of-type .team-spot__balloon { left: auto; right: 0; transform: translate(0, 8px) scale(0.96); transform-origin: bottom right; }
+  .team-spot:last-of-type .team-spot__balloon::after { left: auto; right: 2.2rem; margin: 0 -9px 0 0; }
+  .team-spot:first-of-type:hover .team-spot__balloon,
+  .team-spot:first-of-type:focus-visible .team-spot__balloon,
+  .team-spot:first-of-type[aria-expanded="true"] .team-spot__balloon,
+  .team-spot:last-of-type:hover .team-spot__balloon,
+  .team-spot:last-of-type:focus-visible .team-spot__balloon,
+  .team-spot:last-of-type[aria-expanded="true"] .team-spot__balloon { transform: translate(0, 0) scale(1); }
+
   /* ==========================================================================
      Portfólio — filtros e cards
      ========================================================================== */
