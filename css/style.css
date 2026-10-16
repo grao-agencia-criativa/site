@@ -1027,7 +1027,8 @@
 
   .team-photo {
     position: relative;
-    margin: 0;
+    max-width: 900px;
+    margin: 0 auto;
     border-radius: 24px;
   }
 
@@ -1093,10 +1094,10 @@
   .team-spot__balloon {
     position: absolute;
     left: 50%;
-    bottom: calc(50% + 22px);
+    top: calc(50% + 22px);
     z-index: 2;
     width: max-content;
-    max-width: min(280px, 70vw);
+    max-width: min(280px, 62vw);
     padding: 1rem 1.2rem;
     border-radius: 16px;
     background: var(--cream);
@@ -1105,8 +1106,8 @@
     box-shadow: 0 12px 30px rgba(35, 26, 9, 0.22);
     opacity: 0;
     visibility: hidden;
-    transform: translate(-50%, 8px) scale(0.96);
-    transform-origin: bottom center;
+    transform: translate(-50%, -8px) scale(0.96);
+    transform-origin: top center;
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   }
 
@@ -1114,10 +1115,10 @@
     content: "";
     position: absolute;
     left: 50%;
-    top: 100%;
+    bottom: 100%;
     margin-left: -9px;
     border: 9px solid transparent;
-    border-top-color: var(--cream);
+    border-bottom-color: var(--cream);
   }
 
   .team-spot__balloon strong {
@@ -1148,17 +1149,6 @@
   .team-spot:hover .team-spot__dot,
   .team-spot[aria-expanded="true"] .team-spot__dot { opacity: 0; }
 
-  /* Balões das pontas alinhados para dentro da foto */
-  .team-spot:first-of-type .team-spot__balloon { left: 0; transform: translate(0, 8px) scale(0.96); transform-origin: bottom left; }
-  .team-spot:first-of-type .team-spot__balloon::after { left: 2.2rem; }
-  .team-spot:last-of-type .team-spot__balloon { left: auto; right: 0; transform: translate(0, 8px) scale(0.96); transform-origin: bottom right; }
-  .team-spot:last-of-type .team-spot__balloon::after { left: auto; right: 2.2rem; margin: 0 -9px 0 0; }
-  .team-spot:first-of-type:hover .team-spot__balloon,
-  .team-spot:first-of-type:focus-visible .team-spot__balloon,
-  .team-spot:first-of-type[aria-expanded="true"] .team-spot__balloon,
-  .team-spot:last-of-type:hover .team-spot__balloon,
-  .team-spot:last-of-type:focus-visible .team-spot__balloon,
-  .team-spot:last-of-type[aria-expanded="true"] .team-spot__balloon { transform: translate(0, 0) scale(1); }
 
   /* ==========================================================================
      Portfólio — filtros e cards

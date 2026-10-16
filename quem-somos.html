@@ -6,7 +6,7 @@
   <title>Quem Somos — Grão</title>
   <meta name="description" content="Conheça a história da Grão: uma agência criativa nascida de uma amizade e da vontade de fazer comunicação com propósito." />
   <link rel="icon" href="assets/img/icon-green.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -99,19 +99,18 @@
       <div class="container">
         <h2>Quem faz acontecer</h2>
         <p class="team-hint">Passe o mouse (ou toque) em cada um para conhecer.</p>
-        <!-- FOTO DOS COFUNDADORES: troque o src abaixo pela foto.
-             Ajuste --x e --y (em %) de cada pessoa para posicionar o ponto em cima dela. -->
+        <!-- FOTO DOS COFUNDADORES: --x/--y (em %) posicionam o ponto em cada pessoa; --w/--h definem a área do hover. -->
         <figure class="team-photo">
-          <img src="assets/img/cofundadores.jpg" alt="Os três cofundadores da Grão" class="team-photo__img" onerror="this.closest('.team-photo').classList.add('is-placeholder')" />
-          <button class="team-spot" type="button" style="--x: 22%; --y: 38%;" aria-expanded="false">
+          <img src="assets/img/cofundadores.jpg" alt="Adele, Sinara e Paulo, os três cofundadores da Grão, numa rua de paralelepípedos" class="team-photo__img" />
+          <button class="team-spot" type="button" style="--x: 38.8%; --y: 35%; --w: 12%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
-              <strong>Paulo</strong>
-              <span class="team-spot__role">Cofundador</span>
-              <span class="team-spot__desc">Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</span>
+              <strong>Adele</strong>
+              <span class="team-spot__role">Gerente de projetos</span>
+              <span class="team-spot__desc">Virginiana responsável por manter os dois piscianos na linha, e cuida que tudo seja entregue no prazo.</span>
             </span>
           </button>
-          <button class="team-spot" type="button" style="--x: 50%; --y: 34%;" aria-expanded="false">
+          <button class="team-spot" type="button" style="--x: 51.5%; --y: 35%; --w: 11%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
               <strong>Sinara</strong>
@@ -119,12 +118,12 @@
               <span class="team-spot__desc">Em transição de carreira, trouxe um olhar novo e sensível sobre criação — e a coragem de recomeçar com propósito.</span>
             </span>
           </button>
-          <button class="team-spot" type="button" style="--x: 78%; --y: 38%;" aria-expanded="false">
+          <button class="team-spot" type="button" style="--x: 65%; --y: 33%; --w: 15%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
-              <strong>Nome</strong>
-              <span class="team-spot__role">Cofundador(a)</span>
-              <span class="team-spot__desc">Descrição do terceiro cofundador.</span>
+              <strong>Paulo</strong>
+              <span class="team-spot__role">Cofundador</span>
+              <span class="team-spot__desc">Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</span>
             </span>
           </button>
         </figure>
@@ -152,7 +151,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
