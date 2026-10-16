@@ -521,87 +521,91 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================================================
-  // MANIFESTO GRAFITADO — palavras "pintadas" conforme a rolagem
+  // MANIFESTO — minijogo: cada borrifada pinta uma frase na parede
   // ==========================================================================
 
-  const graffitiWall = document.querySelector("[data-graffiti]");
+  const manifestoGame = document.querySelector("[data-manifesto]");
 
-  if (graffitiWall && !prefersReducedMotion) {
-    const manifesto = graffitiWall.querySelector(".manifesto");
-    const paragraphs = [...manifesto.querySelectorAll("p")];
-    const nozzle = document.createElement("span");
-    nozzle.className = "gw-nozzle";
-    nozzle.setAttribute("aria-hidden", "true");
-    manifesto.appendChild(nozzle);
+  if (manifestoGame) {
+    const slides = [...manifestoGame.querySelectorAll("[data-mf-slide]")].map(
+      (slide) => slide.innerHTML.trim()
+    );
+    const wall = manifestoGame.querySelector(".mf-wall");
+    const text = manifestoGame.querySelector("[data-mf-text]");
+    const count = manifestoGame.querySelector("[data-mf-count]");
+    const progress = manifestoGame.querySelector("[data-mf-progress]");
+    const next = manifestoGame.querySelector("[data-mf-next]");
+    const nextLabel = manifestoGame.querySelector("[data-mf-label]");
+    const back = manifestoGame.querySelector("[data-mf-back]");
+    const total = slides.length;
+    const pad = (n) => String(n).padStart(2, "0");
+    let current = 0; // 0 = parede limpa, 1..total = frase pintada
 
-    // Quebra cada parágrafo em palavras (o texto continua legível para leitores de tela)
-    const groups = paragraphs.map((paragraph) => {
-      const words = paragraph.textContent.trim().split(/\s+/);
-      paragraph.setAttribute("aria-label", paragraph.textContent.trim());
-      paragraph.textContent = "";
+    progress.innerHTML = "<span></span>".repeat(total);
+    const bars = [...progress.children];
+    text.classList.add("is-idle");
 
-      return words.map((text, index) => {
-        const word = document.createElement("span");
-        word.className = "gw-word";
-        word.setAttribute("aria-hidden", "true");
-        word.textContent = text;
-        word.style.setProperty("--tilt", `${(Math.random() * 2 - 1).toFixed(2)}deg`);
+    const paint = (sentence) => {
+      text.classList.remove("is-idle");
+      text.textContent = "";
 
-        if (text.length > 4 && Math.random() < 0.06) {
-          word.classList.add("has-drip");
-          word.style.setProperty("--drip-x", `${Math.round(20 + Math.random() * 60)}%`);
-          word.style.setProperty("--drip-h", `${Math.round(10 + Math.random() * 22)}px`);
-        }
+      const words = sentence.split(/\s+/).map((word, index, all) => {
+        const span = document.createElement("span");
+        span.className = "gw-word";
+        span.textContent = word;
+        span.style.setProperty("--i", index);
+        span.style.setProperty("--tilt", `${(Math.random() * 2 - 1).toFixed(2)}deg`);
 
-        paragraph.appendChild(word);
-        if (index < words.length - 1) paragraph.appendChild(document.createTextNode(" "));
-        return word;
-      });
-    });
-
-    let graffitiTicking = false;
-
-    const paintFromScroll = () => {
-      const viewport = window.innerHeight;
-      let lastPainted = null;
-      let painting = false;
-
-      paragraphs.forEach((paragraph, i) => {
-        const rect = paragraph.getBoundingClientRect();
-        const start = viewport * 0.85;
-        const progress = Math.min(
-          Math.max((start - rect.top) / (rect.height + viewport * 0.3), 0),
-          1
-        );
-        const words = groups[i];
-        const count = Math.round(progress * words.length);
-
-        words.forEach((word, index) => {
-          word.classList.toggle("is-painted", index < count);
-        });
-
-        if (count > 0) lastPainted = words[count - 1];
-        if (count > 0 && count < words.length) painting = true;
+        text.appendChild(span);
+        if (index < all.length - 1) text.appendChild(document.createTextNode(" "));
+        return span;
       });
 
-      if (lastPainted && painting) {
-        nozzle.style.transform = `translate(${lastPainted.offsetLeft + lastPainted.offsetWidth}px, ${lastPainted.offsetTop + lastPainted.offsetHeight / 2}px)`;
-        nozzle.classList.add("is-active");
+      wall.style.setProperty("--mist-x", `${Math.round(20 + Math.random() * 60)}%`);
+      wall.style.setProperty("--mist-y", `${Math.round(30 + Math.random() * 40)}%`);
+      wall.classList.remove("is-spraying");
+      void wall.offsetWidth; // reinicia a animação da névoa
+      wall.classList.add("is-spraying");
+
+      if (prefersReducedMotion) {
+        words.forEach((word) => word.classList.add("is-painted"));
       } else {
-        nozzle.classList.remove("is-active");
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() =>
+            words.forEach((word) => word.classList.add("is-painted"))
+          )
+        );
       }
-
-      graffitiTicking = false;
     };
 
-    window.addEventListener("scroll", () => {
-      if (graffitiTicking) return;
-      graffitiTicking = true;
-      window.requestAnimationFrame(paintFromScroll);
-    }, { passive: true });
+    const render = () => {
+      if (current === 0) {
+        text.classList.add("is-idle");
+        text.textContent = "Toda grande árvore começou pequena…";
+      } else {
+        paint(slides[current - 1]);
+      }
 
-    window.addEventListener("resize", paintFromScroll, { passive: true });
-    paintFromScroll();
+      count.textContent = `${pad(current)} / ${pad(total)}`;
+      bars.forEach((bar, index) => bar.classList.toggle("is-done", index < current));
+      back.disabled = current === 0;
+
+      if (current === 0) nextLabel.textContent = "Grafitar a primeira frase";
+      else if (current === total) nextLabel.textContent = "Pintar de novo";
+      else nextLabel.textContent = "Grafitar a próxima frase";
+    };
+
+    next.addEventListener("click", () => {
+      current = current === total ? 1 : current + 1;
+      render();
+    });
+
+    back.addEventListener("click", () => {
+      if (current > 0) current -= 1;
+      render();
+    });
+
+    render();
   }
 
   // ==========================================================================

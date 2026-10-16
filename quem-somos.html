@@ -6,7 +6,7 @@
   <title>Quem Somos — Grão</title>
   <meta name="description" content="Conheça a história da Grão: uma agência criativa nascida de uma amizade e da vontade de fazer comunicação com propósito." />
   <link rel="icon" href="assets/img/icon-green.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body>
 
@@ -38,20 +38,54 @@
       </div>
     </section>
 
-    <section class="graffiti-wall" data-graffiti>
+    <section class="graffiti-wall" id="manifesto" data-manifesto>
       <div class="container">
-        <div class="manifesto manifesto--graffiti">
-          <p>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</p>
-          <p>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</p>
-          <p>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</p>
-          <p>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</p>
-          <p>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</p>
-          <p>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</p>
-          <p>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</p>
-          <p>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</p>
-          <p>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</p>
-          <p>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</p>
+        <span class="mf-kicker">Por que existimos</span>
+        <h2 class="mf-title">Nosso manifesto</h2>
+        <p class="mf-intro">Pegue a lata e pinte o manifesto da Grão na parede, uma frase de cada vez.</p>
+
+        <div class="mf-wall">
+          <span class="mf-wall__tag" aria-hidden="true">manifesto grão</span>
+          <p class="mf-wall__text manifesto" data-mf-text aria-live="polite">Toda grande árvore começou pequena…</p>
+          <span class="mf-wall__count" data-mf-count aria-hidden="true">00 / 10</span>
         </div>
+
+        <div class="mf-progress" aria-hidden="true" data-mf-progress></div>
+
+        <div class="mf-controls">
+          <button class="mf-back" type="button" data-mf-back disabled>‹ Voltar</button>
+          <button class="mf-spray" type="button" data-mf-next>
+            <svg class="mf-spray__can" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9h7v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9Z" fill="currentColor"/><path d="M9.5 6h4v3h-4z" fill="currentColor"/><path d="M11 3.5h2.2v2.2H11z" fill="currentColor"/><circle cx="17.5" cy="3.2" r=".9" fill="currentColor"/><circle cx="19.6" cy="5" r=".9" fill="currentColor"/><circle cx="17.8" cy="6.4" r=".9" fill="currentColor"/></svg>
+            <span data-mf-label>Grafitar a primeira frase</span>
+          </button>
+        </div>
+
+        <details class="mf-full">
+          <summary>Prefere ler o manifesto completo?</summary>
+          <div class="manifesto">
+            <p>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</p>
+            <p>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</p>
+            <p>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</p>
+            <p>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</p>
+            <p>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</p>
+            <p>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</p>
+            <p>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</p>
+            <p>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</p>
+            <p>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</p>
+            <p>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</p>
+          </div>
+        </details>
+
+          <template data-mf-slide>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</template>
+          <template data-mf-slide>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</template>
+          <template data-mf-slide>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</template>
+          <template data-mf-slide>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</template>
+          <template data-mf-slide>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</template>
+          <template data-mf-slide>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</template>
+          <template data-mf-slide>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</template>
+          <template data-mf-slide>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</template>
+          <template data-mf-slide>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</template>
+          <template data-mf-slide>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</template>
       </div>
     </section>
 
@@ -156,7 +190,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="js/main.js?v=5"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
