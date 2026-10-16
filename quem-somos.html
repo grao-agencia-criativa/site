@@ -6,7 +6,7 @@
   <title>Quem Somos — Grão</title>
   <meta name="description" content="Conheça a história da Grão: uma agência criativa nascida de uma amizade e da vontade de fazer comunicação com propósito." />
   <link rel="icon" href="assets/img/icon-green.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body>
 
@@ -38,28 +38,67 @@
       </div>
     </section>
 
-    <section class="graffiti-wall" data-graffiti>
+    <section class="graffiti-wall" id="manifesto" data-manifesto>
       <div class="container">
-        <div class="manifesto manifesto--graffiti">
-          <p>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</p>
-          <p>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</p>
-          <p>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</p>
-          <p>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</p>
-          <p>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</p>
-          <p>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</p>
-          <p>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</p>
-          <p>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</p>
-          <p>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</p>
-          <p>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</p>
+        <span class="mf-kicker">Por que existimos</span>
+        <h2 class="mf-title">Nosso manifesto</h2>
+        <p class="mf-intro">Pegue a lata e pinte o manifesto da Grão na parede, uma frase de cada vez.</p>
+
+        <div class="mf-wall">
+          <span class="mf-wall__tag" aria-hidden="true">manifesto grão</span>
+          <p class="mf-wall__text manifesto" data-mf-text aria-live="polite">Toda grande árvore começou pequena…</p>
+          <span class="mf-wall__count" data-mf-count aria-hidden="true">00 / 10</span>
         </div>
+
+        <div class="mf-progress" aria-hidden="true" data-mf-progress></div>
+
+        <div class="mf-controls">
+          <button class="mf-back" type="button" data-mf-back disabled>‹ Voltar</button>
+          <button class="mf-spray" type="button" data-mf-next>
+            <svg class="mf-spray__can" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9h7v12a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9Z" fill="currentColor"/><path d="M9.5 6h4v3h-4z" fill="currentColor"/><path d="M11 3.5h2.2v2.2H11z" fill="currentColor"/><circle cx="17.5" cy="3.2" r=".9" fill="currentColor"/><circle cx="19.6" cy="5" r=".9" fill="currentColor"/><circle cx="17.8" cy="6.4" r=".9" fill="currentColor"/></svg>
+            <span data-mf-label>Grafitar a primeira frase</span>
+          </button>
+        </div>
+
+        <details class="mf-full">
+          <summary>Prefere ler o manifesto completo?</summary>
+          <div class="manifesto">
+            <p>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</p>
+            <p>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</p>
+            <p>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</p>
+            <p>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</p>
+            <p>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</p>
+            <p>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</p>
+            <p>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</p>
+            <p>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</p>
+            <p>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</p>
+            <p>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</p>
+          </div>
+        </details>
+
+          <template data-mf-slide>Toda grande árvore começou pequena. Começou como uma semente, precisou de tempo, cuidado, espaço e direção para crescer.</template>
+          <template data-mf-slide>Com marcas, não é diferente. Mas entendemos que a comunicação se perdeu um pouco pelo caminho.</template>
+          <template data-mf-slide>Em algum momento, deixamos de criar para conectar e começamos a criar para preencher. Mais conteúdo. Mais tendências. Mais velocidade. Mais alcance. E, no meio de tudo isso, menos significado.</template>
+          <template data-mf-slide>Ideias que nascem, viralizam e desaparecem antes mesmo de criar raízes.</template>
+          <template data-mf-slide>A Grão nasceu para lembrar que comunicação não é sobre falar mais. É sobre ter algo a dizer.</template>
+          <template data-mf-slide>Não queremos colocar mais um conteúdo no meio do barulho. Queremos criar algo que faça alguém parar. Olhar. Sentir. Pensar. Se identificar. E, principalmente, se conectar.</template>
+          <template data-mf-slide>Pois a comunicação também precisa de raízes antes de buscar frutos. Precisa de estratégia antes de velocidade. De identidade antes de tendência. De conexão antes de conversão.</template>
+          <template data-mf-slide>Por isso, escolhemos ser Grão. Porque acreditamos no pequeno. No que ainda está começando. Nas marcas que não querem apenas acompanhar o mercado, mas ajudar a transformá-lo. Nos pequenos negócios que acreditam que podem fazer diferente. E em uma comunicação que ainda pode ser humana. Ainda pode ser criativa. Ainda pode ser relevante. Ainda pode conectar.</template>
+          <template data-mf-slide>Ainda existe esperança para a comunicação. E talvez ela não esteja em criar mais. Talvez esteja em criar melhor. Talvez esteja em voltar às raízes.</template>
+          <template data-mf-slide>Talvez toda mudança que precisamos ver no mundo comece exatamente assim: pequena. Como um grão.</template>
       </div>
     </section>
 
     <section class="bg-cream">
-      <div class="container" style="max-width: 720px;">
+      <div class="container friendship">
+        <div class="friendship__text">
         <h2>De uma amizade para um propósito</h2>
         <p>A Grão nasceu de uma vontade simples: criar com sentido. Paulo carrega quase dez anos de estrada em marketing; Sinara trouxe uma virada de carreira e um olhar novo sobre criação. Juntos, transformaram uma amizade em agência — e uma inquietação com a comunicação vazia em um jeito diferente de fazer as coisas.</p>
         <p>Somos uma agência recente, mas não improvisada. Nascemos com clareza do que não queremos ser.</p>
+        </div>
+        <figure class="friendship__photo">
+          <img src="assets/img/amizade.jpg" alt="Sinara e Paulo de costas um para o outro, sorrindo, em frente a um muro coberto de folhas" loading="lazy" />
+        </figure>
       </div>
     </section>
 
@@ -99,19 +138,18 @@
       <div class="container">
         <h2>Quem faz acontecer</h2>
         <p class="team-hint">Passe o mouse (ou toque) em cada um para conhecer.</p>
-        <!-- FOTO DOS COFUNDADORES: troque o src abaixo pela foto.
-             Ajuste --x e --y (em %) de cada pessoa para posicionar o ponto em cima dela. -->
+        <!-- FOTO DOS COFUNDADORES: --x/--y (em %) posicionam o ponto em cada pessoa; --w/--h definem a área do hover. -->
         <figure class="team-photo">
-          <img src="assets/img/cofundadores.jpg" alt="Os três cofundadores da Grão" class="team-photo__img" onerror="this.closest('.team-photo').classList.add('is-placeholder')" />
-          <button class="team-spot" type="button" style="--x: 22%; --y: 38%;" aria-expanded="false">
+          <img src="assets/img/cofundadores.jpg" alt="Adele, Sinara e Paulo, os três cofundadores da Grão, numa rua de paralelepípedos" class="team-photo__img" />
+          <button class="team-spot" type="button" style="--x: 38.8%; --y: 35%; --w: 12%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
-              <strong>Paulo</strong>
-              <span class="team-spot__role">Cofundador</span>
-              <span class="team-spot__desc">Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</span>
+              <strong>Adele</strong>
+              <span class="team-spot__role">Gerente de projetos</span>
+              <span class="team-spot__desc">Virginiana responsável por manter os dois piscianos na linha, e cuida que tudo seja entregue no prazo.</span>
             </span>
           </button>
-          <button class="team-spot" type="button" style="--x: 50%; --y: 34%;" aria-expanded="false">
+          <button class="team-spot" type="button" style="--x: 51.5%; --y: 35%; --w: 11%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
               <strong>Sinara</strong>
@@ -119,12 +157,12 @@
               <span class="team-spot__desc">Em transição de carreira, trouxe um olhar novo e sensível sobre criação — e a coragem de recomeçar com propósito.</span>
             </span>
           </button>
-          <button class="team-spot" type="button" style="--x: 78%; --y: 38%;" aria-expanded="false">
+          <button class="team-spot" type="button" style="--x: 65%; --y: 33%; --w: 15%; --h: 40%;" aria-expanded="false">
             <span class="team-spot__dot" aria-hidden="true"></span>
             <span class="team-spot__balloon" role="tooltip">
-              <strong>Nome</strong>
-              <span class="team-spot__role">Cofundador(a)</span>
-              <span class="team-spot__desc">Descrição do terceiro cofundador.</span>
+              <strong>Paulo</strong>
+              <span class="team-spot__role">Cofundador</span>
+              <span class="team-spot__desc">Quase dez anos de estrada em marketing, trazendo estratégia e visão de negócio pra cada projeto da Grão.</span>
             </span>
           </button>
         </figure>
@@ -152,7 +190,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=5"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
