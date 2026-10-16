@@ -1021,6 +1021,34 @@
     .gw-nozzle { display: none; }
   }
 
+  /* --- De uma amizade para um propósito: texto + foto --- */
+
+  .friendship {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .friendship__photo {
+    margin: 0;
+    padding: 0.8rem 0.8rem 2.6rem;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 18px 40px rgba(35, 26, 9, 0.16);
+    transform: rotate(2.5deg);
+    transition: transform 0.4s ease;
+  }
+
+  .friendship__photo:hover { transform: rotate(0deg) scale(1.02); }
+
+  .friendship__photo img { width: 100%; border-radius: 3px; }
+
+  @media (max-width: 820px) {
+    .friendship { grid-template-columns: 1fr; }
+    .friendship__photo { max-width: 360px; margin: 0 auto; }
+  }
+
   /* --- Quem faz acontecer: foto com balões --- */
 
   .team-hint { color: var(--green); margin: -0.2rem 0 1.6rem; }
